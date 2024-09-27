@@ -7,21 +7,21 @@ import { ScoreBoardPage } from 'pages/ScoreBoard'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 
 import { NotFound } from './components/NotFound'
-import { RequireAuth } from './components/RequireAuth'
+// import { RequireAuth } from './components/RequireAuth'
 export function Routes() {
   return (
     <BrowserRouter>
       <Switch>
         <Route element={<DefaultLayout />}>
-          <Route element={<RequireAuth />}>
-            <Route path="/plinko" element={<PlinkoGamePage />} />
+          {/* <Route element={<RequireAuth />}> */}
+            <Route path="/" element={<PlinkoGamePage />} />
             <Route path="/gifts" element={<Gifts />} />
           </Route>
-          <Route path="/" element={<ScoreBoardPage />} />
+          {/* <Route path="/" element={<ScoreBoardPage />} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/contribute" element={<Contribute />} />
           <Route path="*" element={<NotFound />} />
-        </Route>
+        {/* </Route> */}
       </Switch>
     </BrowserRouter>
   )
