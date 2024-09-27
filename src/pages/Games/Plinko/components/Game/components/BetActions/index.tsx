@@ -67,8 +67,14 @@ export function BetActions({
     setBalance(prevBalance => prevBalance - betValue)
     onRunBet(betValue)
 
-    // Simulate winnings (e.g., 2x the bet amount for simplicity)
-    const winnings = betValue * 2  // Example logic for winnings
+    // Simulate where the ball falls
+    const multipliers = [0.3, 0.5, 1, 1.5, 2, 5] // Example multipliers for different slots
+    const randomSlotIndex = Math.floor(Math.random() * multipliers.length) // Random slot index
+    const winningsMultiplier = multipliers[randomSlotIndex] // Get multiplier based on where the ball lands
+
+    // Calculate winnings based on the multiplier
+    const winnings = betValue * winningsMultiplier
+
     setTimeout(() => {
       setBalance(prevBalance => prevBalance + winnings)  // Add winnings to the balance
     }, 1000)  // Simulate a delay for the win
